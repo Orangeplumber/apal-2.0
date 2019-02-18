@@ -1,0 +1,33 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p><a href="{% url 'account_logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'account_login' %}">login</a>
+{% endif %}
+
+<!-- {% load static %} -->
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}"/> -->
+<a href="{% url 'account_login' %}">login</a>
+{% if pack_list %}
+  {% for pack in pack_list %}
+    <div class="{{ pack.pack_name }}">
+      <ul id="{{ pack.id }}">
+        <li>{{ pack.pack_name }}</li>
+        <li>{{ pack.pack_price }}</li>
+        <li><img src="{{ pack.fruit_pic.url }}"></li>
+        <li>{{ pack.stock }}</li>
+        <button> Add to Cart</button>
+      </ul>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>All fruits are out of stock!</p>
+{% endif %}
+
+{% endblock %}
