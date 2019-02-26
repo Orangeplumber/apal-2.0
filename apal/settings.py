@@ -25,7 +25,7 @@ SECRET_KEY = 'g8)bb#ut&koz)c18*nu7o7#yp9fimjauya8_180&+en!$#jms&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ['www.apalfresh.com', 'support.apalfresh.com', 'apalfresh.com']
 
 
 # Application definition
@@ -103,12 +103,6 @@ DATABASES = {
 }
 
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'harnish1198@gmail.com'
-EMAIL_HOST_PASSWORD = 'Op!salone'
-EMAIL_PORT = 587
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -148,9 +142,9 @@ STATICFILES_DIRS = (
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-MEDIA_ROOT = u'/home/harnish/Desktop/web/Django/apal/media'
+MEDIA_ROOT = u'/var/www/sites/apal-2.0/apal/media'
 MEDIA_URL = '/media/'
-# STATIC_ROOT = u'/home/harnish/Desktop/web/Django/apal/static'
+STATIC_ROOT = u'var/www/sites/apal-2.0/apal/static'
 STATIC_URL = '/static/'
 
 # LOGIN_REDIRECT_URL = 'product_list'
@@ -166,11 +160,18 @@ SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
 
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'harnish1198@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Op1salone'
+
 EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'harnish1198@gmail.com'
-EMAIL_HOST_PASSWORD = 'Op1salone'
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'support@apalfresh.com'
+EMAIL_HOST_PASSWORD = 'Op1salne!'
 
 # paytm credentials
 PAYTM_MERCHANT_KEY = "sf55c%prMEHGn@uP"
