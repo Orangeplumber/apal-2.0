@@ -29,6 +29,7 @@ urlpatterns = [
     path('paytm/', include('paytm.urls')),
     path('accounts/', include('allauth.urls')),
     path('cart/', include('cart.urls')),
+    url('', include('pwa.urls')),  # You MUST use an empty string as the URL prefix
     path('', include('shop.urls')),
     path('orders/', include('orders.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
