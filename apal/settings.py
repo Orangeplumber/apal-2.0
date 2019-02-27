@@ -25,7 +25,7 @@ SECRET_KEY = 'g8)bb#ut&koz)c18*nu7o7#yp9fimjauya8_180&+en!$#jms&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.apalfresh.com', 'apalfresh.com']
+ALLOWED_HOSTS = ['www.apalfresh.com', 'apalfresh.com',]
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'orders',
     'paytm',
 
+    'pwa',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -143,8 +144,10 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 MEDIA_ROOT = u'/var/www/sites/apal-2.0/apal/media'
+# MEDIA_ROOT = os.path.join(BASE_DIR, '/media')
 MEDIA_URL = '/media/'
 STATIC_ROOT = u'var/www/sites/apal-2.0/apal/static'
+# STATIC_ROOT=os.path.join(BASE_DIR, '/static')
 STATIC_URL = '/static/'
 
 # LOGIN_REDIRECT_URL = 'product_list'
@@ -183,10 +186,33 @@ if DEBUG:
     PAYTM_MERCHANT_KEY = "sf55c%prMEHGn@uP"
     PAYTM_MERCHANT_ID = "OytXzr28687551371003"
     PAYTM_WEBSITE = 'WEB_STAGING'
-    HOST_URL = 'http://localhost:8000'
+    HOST_URL = 'https://www.apalfresh.com'
     '''
     In sandbox enviornment you can use following wallet credentials to login and make payment.
     Mobile Number : 7777777777
     Password : Paytm12345
     This test wallet is topped-up to a balance of 7000 Rs. every 5 minutes.
     '''
+
+
+PWA_APP_NAME = 'ऐpal'
+PWA_APP_DESCRIPTION = "My app description"
+PWA_APP_THEME_COLOR = '#0A0302'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/images/apple.png',
+        'sizes': '160x160'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': '/static/images/icons/splash-640x1136.png',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
