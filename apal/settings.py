@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'g8)bb#ut&koz)c18*nu7o7#yp9fimjauya8_180&+en!$#jms&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['www.apalfresh.com', 'apalfresh.com','127.0.0.1']
 
@@ -137,17 +137,19 @@ USE_L10N = True
 USE_TZ = True
 
 STATICFILES_DIRS = (
-  os.path.join(BASE_DIR, 'static'),
+  os.path.join(BASE_DIR, "static"),
 )
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-# MEDIA_ROOT = u'/var/www/sites/apal-2.0/apal/media'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/media')
+MEDIA_ROOT = u'/var/www/sites/apal-2.0/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, '/media')
 MEDIA_URL = '/media/'
-# STATIC_ROOT = u'var/www/sites/apal-2.0/apal/static'
-STATIC_ROOT=os.path.join(BASE_DIR, '/static')
+if not DEBUG:
+    STATIC_ROOT =u'/var/www/sites/apal-2.0/static/'
+# STATIC_ROOT = u'/var/www/sites/apal-2.0/static'
+# STATIC_ROOT=os.path.join(BASE_DIR, '/static')
 STATIC_URL = '/static/'
 
 # LOGIN_REDIRECT_URL = 'product_list'
