@@ -15,15 +15,15 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'g8)bb#ut&koz)c18*nu7o7#yp9fimjauya8_180&+en!$#jms&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.apalfresh.com', 'apalfresh.com','127.0.0.1']
 
@@ -158,30 +158,35 @@ STATIC_URL = '/static/'
 CART_SESSION_ID = 'cart'
 
 ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+EMAIL_VERIFICATION=True
 
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
 
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+# EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_USE_TLS = True
+EMAIL_USE_SSL=True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = False
 # EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'harnish1198@gmail.com'
-# EMAIL_HOST_PASSWORD = 'Op1salone'
+EMAIL_PORT=465
+EMAIL_HOST_USER = 'harnish1198@gmail.com'
+EMAIL_HOST_PASSWORD = 'Op1salone'
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.zoho.com'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = 'support@apalfresh.com'
-EMAIL_HOST_PASSWORD = 'Op1salne!'
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL=False
+# EMAIL_HOST = 'smtp.zoho.com'
+# EMAIL_PORT=587
+# EMAIL_HOST_USER = 'support@apalfresh.com'
+# EMAIL_HOST_PASSWORD = 'Op1salne!'
 
 # paytm credentials
 PAYTM_MERCHANT_KEY = "sf55c%prMEHGn@uP"
 PAYTM_MERCHANT_ID = "OytXzr28687551371003"
-HOST_URL = "http://localhost:8080"
+# HOST_URL = "http://localhost:8080"
 PAYTM_CALLBACK_URL = "/paytm/response/"
 
 if DEBUG:
