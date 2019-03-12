@@ -184,22 +184,16 @@ EMAIL_HOST_PASSWORD = 'Op1salone'
 # EMAIL_HOST_PASSWORD = 'Op1salne!'
 
 # paytm credentials
-PAYTM_MERCHANT_KEY = "sf55c%prMEHGn@uP"
-PAYTM_MERCHANT_ID = "OytXzr28687551371003"
+PAYTM_MERCHANT_KEY = "naUZUfH1Cas1r28H"
+PAYTM_MERCHANT_ID = "yEZlQb07359745931665"
 HOST_URL = "https://www.apalfresh.com"
 PAYTM_CALLBACK_URL = "/paytm/response/"
 
 if DEBUG:
-    PAYTM_MERCHANT_KEY = "sf55c%prMEHGn@uP"
-    PAYTM_MERCHANT_ID = "OytXzr28687551371003"
-    PAYTM_WEBSITE = 'WEB_STAGING'
+    PAYTM_MERCHANT_KEY = "naUZUfH1Cas1r28H"
+    PAYTM_MERCHANT_ID = "yEZlQb07359745931665"
+    PAYTM_WEBSITE = 'DEFAULT'
     HOST_URL = 'https://www.apalfresh.com'
-    '''
-    In sandbox enviornment you can use following wallet credentials to login and make payment.
-    Mobile Number : 7777777777
-    Password : Paytm12345
-    This test wallet is topped-up to a balance of 7000 Rs. every 5 minutes.
-    '''
 
 
 PWA_APP_NAME = 'ऐpal'
