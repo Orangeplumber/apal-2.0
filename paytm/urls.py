@@ -3,7 +3,7 @@ from .views import *
 
 urlpatterns = [
     # Examples:
-    url(r'^$', home, name='home'),
-    url(r'^payment/', payment, name='payment'),
+    # url(r'^$', home, name='home'),
+    # url(r'^payment/', payment, name='payment'),
     url(r'^response/', response, name='response'),
 ]

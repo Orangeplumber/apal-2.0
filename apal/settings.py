@@ -186,7 +186,7 @@ EMAIL_HOST_PASSWORD = 'Op1salone'
 # paytm credentials
 PAYTM_MERCHANT_KEY = "sf55c%prMEHGn@uP"
 PAYTM_MERCHANT_ID = "OytXzr28687551371003"
-# HOST_URL = "http://localhost:8080"
+HOST_URL = "https://www.apalfresh.com"
 PAYTM_CALLBACK_URL = "/paytm/response/"
 
 if DEBUG:

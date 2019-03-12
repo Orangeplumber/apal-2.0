@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import OrderItem, Order
 from .forms import OrderCreateForm
 from cart.cart import Cart
+from paytm import Checksum
+from paytm.views import paytm
 from django.contrib.auth.decorators import login_required
 from django.forms.models import inlineformset_factory
 from django.conf import settings
@@ -24,6 +26,7 @@ def order_create(request):
             # orders = formset.save(commit=False)
             orders_id=[]
             for order in formset:
+                order_id = Checksum.__id_generator__()
                 order.instance.customer = request.user
                 order.instance.save()
 
@@ -31,6 +34,7 @@ def order_create(request):
                 # order.save()
                 for item in cart:
                     OrderItem.objects.create(
+                        id=order_id,
                         order=order.instance,
                         product=item['product'],
                         price=item['price'],
@@ -38,9 +42,12 @@ def order_create(request):
                     )
                 orders_id.append(order.instance.id)
             cart.clear()
-        return render(request, 'orders/order/created.html', {'orders': orders_id})
+        order=Order.objects.get(id=order_id)
+        bill_amount=order.get_total_cost()
+        return paytm(request, order_id, bill_amount)
+        # return render(request, 'orders/order/created.html', {'orders': orders_id})
     else:
-        OrderFormSet = formset_factory(OrderCreateForm, extra=2)
+        OrderFormSet = formset_factory(OrderCreateForm, extra=1)
         formset = OrderFormSet()
     return render(request, 'orders/order/create.html', {'formset': formset})
 
