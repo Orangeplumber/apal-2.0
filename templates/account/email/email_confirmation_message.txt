@@ -1,8 +1,16 @@
-{% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Hello from {{ site_name }}!
+{% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+Dear {{ user_display }}, 
 
-You're receiving this e-mail because user {{ user_display }} has given yours as an e-mail address to connect their account.
+Your email was provided for registration on {{site_name}} and you were successfully registered.
 
-To confirm this is correct, go to {{ activate_url }}
+To confirm your email please follow the link {{ activate_url }}
+After that, please, go to http://codeforces.com/enter where you can login into the system.
+
+Thank you for your interest in {{site_name}}
+
+If it was not you, just ignore this letter. 
+Best Regards,
+Team ऐpal
 {% endblocktrans %}{% endautoescape %}
 {% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Thank you from {{ site_name }}!
 {{ site_domain }}{% endblocktrans %}
