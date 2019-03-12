@@ -3,7 +3,7 @@ from .models import OrderItem, Order
 from .forms import OrderCreateForm
 from cart.cart import Cart
 from paytm import Checksum
-from paytm.views import paytm
+from paytm.views import payment
 from django.contrib.auth.decorators import login_required
 from django.forms.models import inlineformset_factory
 from django.conf import settings
@@ -44,7 +44,7 @@ def order_create(request):
             cart.clear()
         order=Order.objects.get(id=order_id)
         bill_amount=order.get_total_cost()
-        return paytm(request, order_id, bill_amount)
+        return payment(request, order_id, bill_amount)
         # return render(request, 'orders/order/created.html', {'orders': orders_id})
     else:
         OrderFormSet = formset_factory(OrderCreateForm, extra=1)
