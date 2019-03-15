@@ -144,7 +144,7 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 MEDIA_ROOT = u'/var/www/sites/apal-2.0/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, '/media')
+# MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
 MEDIA_URL = '/media/'
 if not DEBUG:
     STATIC_ROOT =u'/var/www/sites/apal-2.0/static/'
@@ -173,8 +173,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = False
 # EMAIL_PORT = 587
 EMAIL_PORT=465
-EMAIL_HOST_USER = 'harnish1198@gmail.com'
-EMAIL_HOST_PASSWORD = 'Op1salone'
+EMAIL_HOST_USER = 'apalfresh@gmail.com'
+EMAIL_HOST_PASSWORD = 'apleveryday'
 
 # EMAIL_USE_TLS = True
 # EMAIL_USE_SSL=False
