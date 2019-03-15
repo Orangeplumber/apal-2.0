@@ -26,8 +26,7 @@ def order_create(request):
             # orders = formset.save(commit=False)
             orders_id=[]
             for order in formset:
-                order_id=100
-                # order_id = Checksum.__id_generator__()
+                order_ID = Checksum.__id_generator__()
                 order.instance.customer = request.user
                 order.instance.save()
 
@@ -35,7 +34,7 @@ def order_create(request):
                 # order.save()
                 for item in cart:
                     OrderItem.objects.create(
-                        id=order_id,
+                        order_id=order_ID,
                         order=order.instance,
                         product=item['product'],
                         price=item['price'],
@@ -43,9 +42,9 @@ def order_create(request):
                     )
                 orders_id.append(order.instance.id)
             cart.clear()
-        order=Order.objects.get(id=order_id)
+        order=Order.objects.get(order_id=order_ID)
         bill_amount=order.get_total_cost()
-        return payment(request, order_id, bill_amount)
+        return payment(request, order_ID, bill_amount)
         # return render(request, 'orders/order/created.html', {'orders': orders_id})
     else:
         OrderFormSet = formset_factory(OrderCreateForm, extra=1)
@@ -54,7 +53,7 @@ def order_create(request):
 
 
 
-# def create(request):    
+# def create(request):
 #     AddressInlineFormSet = inlineformset_factory(Address, Store, form=AddressForm)
 
 #      if request.method == 'POST':

@@ -15,7 +15,7 @@ from paytm.models import PaytmHistory
 # def home(request):
     # return HttpResponse("<html><a href='"+ settings.HOST_URL +"/paytm/payment'>PayNow</html>")
 
-def payment(request, order_id, bill_amount):
+def payment(request, order_ID, bill_amount):
     MERCHANT_KEY = settings.PAYTM_MERCHANT_KEY
     MERCHANT_ID = settings.PAYTM_MERCHANT_ID
     get_lang = "/" + get_language() if get_language() else ''
@@ -27,7 +27,7 @@ def payment(request, order_id, bill_amount):
     if bill_amount:
         data_dict = {
                     'MID':MERCHANT_ID,
-                    'ORDER_ID':order_id,
+                    'ORDER_ID':order_ID,
                     'TXN_AMOUNT': bill_amount,
                     'CUST_ID':request.user.id,
                     'INDUSTRY_TYPE_ID':'Retail',
@@ -51,7 +51,7 @@ def response(request):
         verify = Checksum.verify_checksum(data_dict, MERCHANT_KEY, data_dict['CHECKSUMHASH'])
         if verify:
             PaytmHistory.objects.create(user=request.user, **data_dict)
-            order=Order.objects.get(id=data_dict['ORDERID'])
+            order=Order.objects.get(order_id=data_dict['ORDERID'])
             order.paid=True
             order.save()
             return render(request,"paytm/response.html",{"paytm":data_dict})

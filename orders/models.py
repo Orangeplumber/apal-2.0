@@ -40,6 +40,7 @@ from django.conf import settings
 
 class Order(models.Model):
     customer = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='rel_order', on_delete=models.CASCADE)
+    order_id=models.CharField(max_length=7)
     phone_no=models.CharField(max_length=14)
     hostel = models.CharField(max_length=20)
     wing = models.CharField(max_length=5)
