@@ -26,7 +26,8 @@ def order_create(request):
             # orders = formset.save(commit=False)
             orders_id=[]
             for order in formset:
-                order_id = Checksum.__id_generator__()
+                order_id=100
+                # order_id = Checksum.__id_generator__()
                 order.instance.customer = request.user
                 order.instance.save()
 
