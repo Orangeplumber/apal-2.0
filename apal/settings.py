@@ -190,10 +190,9 @@ HOST_URL = "https://www.apalfresh.com"
 PAYTM_CALLBACK_URL = "/paytm/response/"
 
 if DEBUG:
-    PAYTM_MERCHANT_KEY = "naUZUfH1Cas1r28H"
-    PAYTM_MERCHANT_ID = "yEZlQb07359745931665"
-    PAYTM_WEBSITE = 'DEFAULT'
-    HOST_URL = 'https://www.apalfresh.com'
+    PAYTM_MERCHANT_KEY = "sf55c%prMEHGn@uP"
+    PAYTM_MERCHANT_ID = "OytXzr28687551371003"
+    PAYTM_WEBSITE = 'WEB_STAGING'
 
 
 PWA_APP_NAME = 'ऐpal'

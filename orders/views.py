@@ -27,6 +27,7 @@ def order_create(request):
             orders_id=[]
             for order in formset:
                 order_ID = Checksum.__id_generator__()
+                order.instance.order_id=order_ID
                 order.instance.customer = request.user
                 order.instance.save()
 
@@ -34,7 +35,6 @@ def order_create(request):
                 # order.save()
                 for item in cart:
                     OrderItem.objects.create(
-                        order_id=order_ID,
                         order=order.instance,
                         product=item['product'],
                         price=item['price'],
