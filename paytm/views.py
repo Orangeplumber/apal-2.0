@@ -22,7 +22,6 @@ def payment(request, order_ID, bill_amount):
     CALLBACK_URL = settings.HOST_URL + get_lang + settings.PAYTM_CALLBACK_URL
     # Generating unique temporary ids
     # order_id = Checksum.__id_generator__()
-
     # bill_amount = 100
     if bill_amount:
         data_dict = {
@@ -48,6 +47,7 @@ def response(request):
         data_dict = {}
         for key in request.POST:
             data_dict[key] = request.POST[key]
+        print(data_dict)
         verify = Checksum.verify_checksum(data_dict, MERCHANT_KEY, data_dict['CHECKSUMHASH'])
         if verify:
             PaytmHistory.objects.create(user=request.user, **data_dict)
