@@ -144,12 +144,17 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 MEDIA_ROOT = u'/var/www/sites/apal-2.0/media/'
+# MEDIA_ROOT=u'/home/harnish/Desktop/web/Django/apal-2.0/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
 MEDIA_URL = '/media/'
+
+# STATIC_ROOT =u'/var/www/sites/apal-2.0/static/'
+# STATIC_ROOT =u'/home/harnish/Desktop/web/Django/apal-2.0/static/'
 if not DEBUG:
+    # STATIC_ROOT =u'/home/harnish/Desktop/web/Django/apal-2.0/static/'
     STATIC_ROOT =u'/var/www/sites/apal-2.0/static/'
-# STATIC_ROOT = u'/var/www/sites/apal-2.0/static'
-# STATIC_ROOT=os.path.join(BASE_DIR, '/static')
+
+
 STATIC_URL = '/static/'
 
 # LOGIN_REDIRECT_URL = 'product_list'

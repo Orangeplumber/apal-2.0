@@ -32,7 +32,7 @@ urlpatterns = [
     url('', include('pwa.urls')),  # You MUST use an empty string as the URL prefix
     path('', include('shop.urls')),
     path('orders/', include('orders.urls')),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # the following will be the site map:
 # 	|__www.apal.co.in
