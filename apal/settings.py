@@ -25,7 +25,7 @@ SECRET_KEY = 'g8)bb#ut&koz)c18*nu7o7#yp9fimjauya8_180&+en!$#jms&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.apalfresh.com', 'apalfresh.com','127.0.0.1']
+ALLOWED_HOSTS = ['www.apalfresh.com', 'apalfresh.com','127.0.0.1','172.24.80.251']
 
 
 # Application definition
@@ -136,6 +136,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 STATICFILES_DIRS = (
   os.path.join(BASE_DIR, "static"),
 )
@@ -143,16 +144,18 @@ STATICFILES_DIRS = (
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-MEDIA_ROOT = u'/var/www/sites/apal-2.0/media/'
-# MEDIA_ROOT=u'/home/harnish/Desktop/web/Django/apal-2.0/media/'
+# MEDIA_ROOT = u'/var/www/sites/apal-2.0/media/'
+MEDIA_ROOT=u'/home/harnish/Desktop/web/Django/apal-2.0/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
 MEDIA_URL = '/media/'
 
 # STATIC_ROOT =u'/var/www/sites/apal-2.0/static/'
 # STATIC_ROOT =u'/home/harnish/Desktop/web/Django/apal-2.0/static/'
 if not DEBUG:
+    pass
     # STATIC_ROOT =u'/home/harnish/Desktop/web/Django/apal-2.0/static/'
-    STATIC_ROOT =u'/var/www/sites/apal-2.0/static/'
+    # STATIC_ROOT='static'
+    # STATIC_ROOT =u'/var/www/sites/apal-2.0/static/'
 
 
 STATIC_URL = '/static/'
@@ -179,7 +182,7 @@ EMAIL_USE_TLS = False
 # EMAIL_PORT = 587
 EMAIL_PORT=465
 EMAIL_HOST_USER = 'apalfresh@gmail.com'
-EMAIL_HOST_PASSWORD = 'apleveryday'
+EMAIL_HOST_PASSWORD = '***********'
 
 # EMAIL_USE_TLS = True
 # EMAIL_USE_SSL=False
@@ -189,14 +192,14 @@ EMAIL_HOST_PASSWORD = 'apleveryday'
 # EMAIL_HOST_PASSWORD = 'Op1salne!'
 
 # paytm credentials
-PAYTM_MERCHANT_KEY = "naUZUfH1Cas1r28H"
-PAYTM_MERCHANT_ID = "yEZlQb07359745931665"
+PAYTM_MERCHANT_KEY = "XXXXXXXXXXXXXXX"
+PAYTM_MERCHANT_ID = "XXXXXXXXXXX"
 HOST_URL = "https://www.apalfresh.com"
 PAYTM_CALLBACK_URL = "/paytm/response/"
 
 if DEBUG:
-    PAYTM_MERCHANT_KEY = "sf55c%prMEHGn@uP"
-    PAYTM_MERCHANT_ID = "OytXzr28687551371003"
+    PAYTM_MERCHANT_KEY = "YYYYYYYYYYYY"
+    PAYTM_MERCHANT_ID = "YYYYYYYYYYYYYYYY"
     PAYTM_WEBSITE = 'WEBSTAGING'
 
 
